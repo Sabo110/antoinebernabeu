@@ -17,62 +17,44 @@
 
     <h4 class="text-center display-6 my-2">Dernieres Realisations</h4>
     <div class="row w-50 mx-auto">
-        <div class="col-12 mb-3">
-            <div class="card">
-                <div class="row g-0">
-                    <div class="col-lg-5 col-12">
-                        <img src=" {{asset('assets/images/f8.jpg')}} " class="img-fluid rounded-start" alt="">
-                    </div>
-                    <div class="col-lg-7 col-12">
-                        <div class="card-body">
-                            <h5 class="card-title">nom de la peinture</h5>
-                            <p class="card-text">une description</p>
-                            <p class="card-text"><small class="text-muted">date de publication</small></p>
+        {% for peinture in peintures %}
+            <div class="col-12 mb-3">
+                <div class="card">
+                    <div class="row g-0">
+                        <div class="col-lg-5 col-12">
+                            <img src=" {{peinture.file}} " class="img-fluid rounded-start" alt="">
+                        </div>
+                        <div class="col-lg-7 col-12">
+                            <div class="card-body">
+                                <h5 class="card-title"> {{peinture.nom}} </h5>
+                                <p class="card-text">{{peinture.description}}</p>
+                                <p class="card-text"><small class="text-muted">date de publication: {{peinture.datepublication | date('d-m-Y')}}</small></p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        {% endfor %}
+        
     </div>
 
-
+    <h4 class="text-center display-6 my-2">Dernieres Actualites</h4>
     <div class="row row-cols-1 row-cols-lg-3  w-50 mx-auto">
-        <div class="col">
-            <div class="card h-100">
-                <div class="card-body">
-                    <h5 class="card-title">titre de l'actualite</h5>
-                    <p class="card-text">contenu de l'actualite</p>
+        {% for blogpost in blogposts %}
+            <div class="col">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">{{blogpost.titre}}</h5>
+                        <p class="card-text">{{blogpost.contenu}}</p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">date de publication : {{blogpost.datepublication | date('d-m-Y')}} </small>
+                    </div>
                 </div>
-                <div class="card-footer">
-                    <small class="text-muted">date de publication</small>
-                </div>
             </div>
-        </div>
-        <div class="col">
-            <div class="card h-100">
-            
-            <div class="card-body">
-                <h5 class="card-title">titre de l'actualite</h5>
-                <p class="card-text">contenu de l'actualite</p>
-            </div>
-            <div class="card-footer">
-                <small class="text-muted">date de publication</small>
-            </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card h-100">
-            
-            <div class="card-body">
-                <h5 class="card-title">titre de l'actualite</h5>
-                <p class="card-text">contenu de l'actualite</p>
-            </div>
-            <div class="card-footer">
-                <small class="text-muted">date de publication</small>
-            </div>
-            </div>
-        </div>
-</div>
+        {% endfor %}
+        
+    </div>
 
     <style>
         .home{
@@ -84,6 +66,11 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            }
+
+            .home p{
+                color: white;
+                
             }
             
     </style>
