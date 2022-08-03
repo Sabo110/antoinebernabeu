@@ -1,0 +1,90 @@
+{% extends 'layouts/base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+    <div class="home ">
+        <h1 class="text-white">Antoine Bernabeu</h1>
+        <p>Artiste peintre à chomérac au coeur de l'Adèche</p>
+        <a href="" class="btn btn-primary">Decouvrir mon portfolio
+            <span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                </svg>
+            </span>
+        </a>
+    </div>
+
+    <h4 class="text-center display-6 my-2">Dernieres Realisations</h4>
+    <div class="row w-50 mx-auto">
+        <div class="col-12 mb-3">
+            <div class="card">
+                <div class="row g-0">
+                    <div class="col-lg-5 col-12">
+                        <img src=" {{asset('assets/images/f8.jpg')}} " class="img-fluid rounded-start" alt="">
+                    </div>
+                    <div class="col-lg-7 col-12">
+                        <div class="card-body">
+                            <h5 class="card-title">nom de la peinture</h5>
+                            <p class="card-text">une description</p>
+                            <p class="card-text"><small class="text-muted">date de publication</small></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row row-cols-1 row-cols-lg-3  w-50 mx-auto">
+        <div class="col">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">titre de l'actualite</h5>
+                    <p class="card-text">contenu de l'actualite</p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">date de publication</small>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card h-100">
+            
+            <div class="card-body">
+                <h5 class="card-title">titre de l'actualite</h5>
+                <p class="card-text">contenu de l'actualite</p>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted">date de publication</small>
+            </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card h-100">
+            
+            <div class="card-body">
+                <h5 class="card-title">titre de l'actualite</h5>
+                <p class="card-text">contenu de l'actualite</p>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted">date de publication</small>
+            </div>
+            </div>
+        </div>
+</div>
+
+    <style>
+        .home{
+            height: 240px;
+            background-image: url({{asset('assets/images/f6.jpg')}});
+            background-repeat: no-repeat;
+            background-size: cover;
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            }
+            
+    </style>
+{% endblock %}

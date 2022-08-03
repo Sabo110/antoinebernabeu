@@ -1,0 +1,36 @@
+{% extends "layouts/basesimple.html.twig" %}
+
+{% block body %}
+    <div class="page bg-info">
+        <form action=" {{path('app_login')}} " method="post" class="row gy-3">
+            <div class="form-group col-12">
+                <label for="username">E-mail</label>
+                <input type="email" name="_username" id="username" placeholder="Entrer votre adresse email..." class="form-control">
+            </div>
+            <div class="form-group col-12">
+                <label for="password">Mot de passe</label>
+                <input type="password" name="_password" id="password" placeholder="Entrer votre mot de passe..." class="form-control">
+            </div>
+            <div class="form-group col-12">
+                <button class="submit btn btn-primary">Se connecter !</button>
+            </div>
+        </form>
+    </div>
+    
+
+    <style>
+        .row{
+            width: 30%;
+           
+        }
+        .page{
+            height: 100vh;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            
+        }
+
+        
+    </style>
+{% endblock %}
