@@ -1,0 +1,40 @@
+{% extends "layouts/base.html.twig" %}
+
+{% block title %}
+    Portfolio
+{% endblock %}
+
+{% block body %}
+<div class="row  divportfolio">
+    {% for categorie in categories %}
+        {% set img = categorie.peintures|last %}
+        
+            <div class="col-lg-4 col-12">
+                <a href=" {{path('app_portfolio_categorie', {'slug':categorie.slug})}} ">
+                    <div class="card">
+                        <img src=" {{img.file}} " class="card-img-top" alt="">
+                        <div class="card-body">
+                            <h5 class="card-title">{{categorie.nom}}</h5>
+                            <p class="card-text">{{categorie.description}}</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        
+        
+        
+    {% endfor %}
+</div>
+<style>
+    .divportfolio{
+        width: 50%;
+       margin-left: auto;
+       margin-right: auto;
+       margin-top: 30px;
+    }
+    .Portfolio a{
+        opacity: 1;
+    }
+</style>
+    
+{% endblock %}

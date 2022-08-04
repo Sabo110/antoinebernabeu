@@ -1,0 +1,39 @@
+{% extends 'layouts/base.html.twig' %}
+
+{% block title %}realisation{% endblock %}
+
+{% block body %}
+    <div class="row w-50 mx-auto mt-4 pp">
+        {% for peinture in peintures %}
+            <div class="col-12 mb-3">
+                <div class="card">
+                    <div class="row g-0">
+                        <div class="col-lg-5 col-12">
+                            <img src=" {{peinture.file}} " class="img-fluid rounded-start" alt="">
+                        </div>
+                        <div class="col-lg-7 col-12">
+                            <div class="card-body">
+                                <h5 class="card-title"> {{peinture.nom}} </h5>
+                                <p class="card-text">{{peinture.description}}</p>
+                                <p class="card-text"><small class="text-muted">date de publication: {{peinture.datepublication | date('d-m-Y')}}</small></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        
+    </div>
+    <div class="d-flex justify-content-center">
+        <div class="navigation">
+            {{ knp_pagination_render(peintures) }}
+        </div>
+    </div>
+
+    <style>
+        .pp{
+            z-index: -1;
+        }
+    </style>
+    
+{% endblock %}

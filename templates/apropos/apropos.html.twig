@@ -1,0 +1,28 @@
+{% extends "layouts/base.html.twig" %}
+
+{% block title %}
+    A propos
+{% endblock %}
+
+{% block body %}
+
+    <div class="apropos">
+        <p> {{peintre.apropos}} </p>
+    </div>
+    <style>
+        .apropos{
+            height: 400px;
+            background-image: url({{asset('assets/images/peintre2.jpg')}});
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .apropos p{
+            color:white;
+            width: 30%;
+        }
+    </style>
+{% endblock %}

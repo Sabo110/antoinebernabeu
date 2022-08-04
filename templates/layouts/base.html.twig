@@ -14,10 +14,18 @@
             {{ encore_entry_script_tags('app') }}
         {% endblock %} #}
     </head>
-    <body>
+    <body >
         {% include "composants/navbar.html.twig" %}
         {% block body %}{% endblock %}
         {% include "composants/footer.html.twig" %}
+
+        <style>
+            body{
+                padding-top: 60px;
+            }
+        </style>
         <script src=" {{asset('assets/bootstrap/bootstrap.bundle.min.js')}} "></script>
     </body>
+
+    
 </html>

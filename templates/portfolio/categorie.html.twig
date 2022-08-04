@@ -1,0 +1,36 @@
+{% extends "layouts/base.html.twig" %}
+
+
+{% block body %}
+
+   
+    <h1 class="text-center">{{categorie.nom}} </h1>
+    <p class="text-center">{{categorie.description}}</p>
+            
+    <div class="row  divportfolio">
+        {% for peinture in peintures %}
+            
+            <div class="col-lg-4 col-12">
+                <div class="card">
+                    <img src="{{asset(peinture.file)}}" class="card-img-top" alt="">
+                    {# <div class="card-body">
+                            <h5 class="card-title">{{categorie.nom}}</h5>
+                            <p class="card-text">{{categorie.description}}</p>
+                        </div> #}
+                </div>
+            </div>
+            
+        {% endfor %}
+    </div>
+
+    <style>
+    .divportfolio{
+        width: 50%;
+       
+       margin-left: auto;
+       margin-right: auto;
+       margin-top: 30px;
+    }
+    
+</style>
+{% endblock %}
