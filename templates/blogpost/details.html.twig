@@ -1,0 +1,9 @@
+{% extends "layouts/base.html.twig" %}
+
+{% block body %}
+    <div class="text-center my-5">
+        <h1> {{blogpost.titre}} </h1>
+        <p>description : <br> {{blogpost.contenu}} </p>
+        <small> date de publication : {{blogpost.datepublication|date('d-m-Y')}} </small>
+    </div>
+{% endblock %}

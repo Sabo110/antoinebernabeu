@@ -2,13 +2,22 @@
 
 namespace App\Entity;
 
-use App\Repository\PeintureRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
+
+
+
+use App\Entity\Categorie;
+use App\Entity\Commentaire;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\PeintureRepository;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\HttpFoundation\File\File;
+
 
 #[ORM\Entity(repositoryClass: PeintureRepository::class)]
+#[Vich\Uploadable]
 class Peinture
 {
     #[ORM\Id]
@@ -42,12 +51,16 @@ class Peinture
 
     #[ORM\Column]
     private ?bool $portfolio = null;
-
+ 
     #[ORM\Column(length: 255)]
     private ?string $slug = null;
 
     #[ORM\Column(length: 255)]
     private ?string $file = null;
+
+    #[Vich\UploadableField(mapping: 'products', fileNameProperty: 'file')]
+    private ?File $imageFile = null;
+    
 
     #[ORM\ManyToOne(inversedBy: 'peintures')]
     #[ORM\JoinColumn(nullable: false)]
@@ -202,6 +215,22 @@ class Peinture
         return $this;
     }
 
+    public function setImageFile(?File $imageFile = null): void
+    {
+        $this->imageFile = $imageFile;
+
+        if ($imageFile) {
+           //si le fichier existe deja on met juste à jour sa date de publication
+            $this->datepublication = new \DateTime();
+        }
+    }
+    
+    public function getImageFile(): ?File
+    {
+        return $this->imageFile;
+    }
+
+   
     public function getUser(): ?User
     {
         return $this->user;

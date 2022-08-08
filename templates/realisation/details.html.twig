@@ -1,0 +1,29 @@
+{% extends "layouts/base.html.twig" %}
+
+
+{% block body %}
+    
+    <div class="row my-5">
+        <div class="col-5 ">
+            <ul>
+                <li>nom:  {{peinture.nom}} </li>
+                {% if peinture.largeur is not null %}
+                    <li>largeur:  {{peinture.largeur}} </li>
+                {% endif %}
+                 {% if peinture.hauteur is not null %}
+                    <li>hauteur:  {{peinture.hauteur}} </li>
+                {% endif %}
+                <li>nom:  {{peinture.nom}} </li>
+                <li>description: <br> {{peinture.description}} </li>
+                {% if peinture.envente %}
+                    <li>prix:  {{peinture.prix}}$</li>
+                {% else %}
+                    <li> pas en vente </li>
+                {% endif %}
+                <li>date de publication : {{peinture.datepublication|date('d-m-Y')}} </li>
+            </ul>
+        </div>
+        <div class="col-7 text-center"><img src=" {{ vich_uploader_asset(peinture, 'imageFile') }}  " alt=""></div>
+    </div>
+
+{% endblock %}

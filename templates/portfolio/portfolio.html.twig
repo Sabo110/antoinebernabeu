@@ -12,10 +12,10 @@
             <div class="col-lg-4 col-12">
                 <a href=" {{path('app_portfolio_categorie', {'slug':categorie.slug})}} ">
                     <div class="card">
-                        <img src=" {{img.file}} " class="card-img-top" alt="">
+                        <img src=" {{ vich_uploader_asset(img, 'imageFile') }}  " class="card-img-top" alt="">
                         <div class="card-body">
-                            <h5 class="card-title">{{categorie.nom}}</h5>
-                            <p class="card-text">{{categorie.description}}</p>
+                            <h5 class="card-title text-dark">{{categorie.nom}}</h5>
+                            <p class="card-text text-dark">{{categorie.description}}</p>
                         </div>
                     </div>
                 </a>

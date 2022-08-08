@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-
+use App\Entity\Peinture;
 use App\Repository\PeintureRepository;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Response;
@@ -24,6 +24,15 @@ class RealisationController extends AbstractController
         );
         return $this->render('realisation/realisation.html.twig', [
             'peintures' => $peintures
+        ]);
+    }
+
+    #[Route('/realisation/{slug}', name: 'app_realisation_details')]
+    public function details(Peinture $peinture): Response
+    {
+        
+        return $this->render('realisation/details.html.twig', [
+            'peinture' => $peinture
         ]);
     }
 }

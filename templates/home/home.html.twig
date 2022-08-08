@@ -6,7 +6,7 @@
     <div class="home ">
         <h1 class="text-white">Antoine Bernabeu</h1>
         <p>Artiste peintre à chomérac au coeur de l'Adèche</p>
-        <a href="" class="btn btn-primary">Decouvrir mon portfolio
+        <a href="{{path('app_portfolio')}} " class="btn btn-primary">Decouvrir mon portfolio
             <span>
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
                     <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
@@ -19,20 +19,23 @@
     <div class="row w-50 mx-auto">
         {% for peinture in peintures %}
             <div class="col-12 mb-3">
+            <a href="{{path('app_realisation_details', {'slug': peinture.slug})}}">
                 <div class="card">
                     <div class="row g-0">
-                        <div class="col-lg-5 col-12">
-                            <img src=" {{peinture.file}} " class="img-fluid rounded-start" alt="">
+                        <div class="col-lg-5 col-12 " >
+                            <img src="{{vich_uploader_asset(peinture, 'imageFile')}}" class="img-fluid rounded-start" alt="" >
                         </div>
                         <div class="col-lg-7 col-12">
                             <div class="card-body">
-                                <h5 class="card-title"> {{peinture.nom}} </h5>
-                                <p class="card-text">{{peinture.description}}</p>
-                                <p class="card-text"><small class="text-muted">date de publication: {{peinture.datepublication | date('d-m-Y')}}</small></p>
+                                <h5 class="card-title text-dark"> {{peinture.nom}} </h5>
+                                <p class="card-text text-dark">{{peinture.description}}</p>
+                                <p class="card-text text-dark"><small class="text-muted">date de publication: {{peinture.datepublication | date('d-m-Y')}}</small></p>
                             </div>
                         </div>
                     </div>
                 </div>
+            </a>
+                
             </div>
         {% endfor %}
         
@@ -42,15 +45,18 @@
     <div class="row row-cols-1 row-cols-lg-3  w-50 mx-auto mb-5">
         {% for blogpost in blogposts %}
             <div class="col">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title">{{blogpost.titre}}</h5>
-                        <p class="card-text">{{blogpost.contenu}}</p>
+                <a href="{{path('app_blogpost_details', {'slug': blogpost.slug})}}">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title text-dark">{{blogpost.titre}}</h5>
+                            <p class="card-text text-dark">{{blogpost.contenu}}</p>
+                        </div>
+                        <div class="card-footer">
+                            <small class="text-muted text-dark">date de publication : {{blogpost.datepublication | date('d-m-Y')}} </small>
+                        </div>
                     </div>
-                    <div class="card-footer">
-                        <small class="text-muted">date de publication : {{blogpost.datepublication | date('d-m-Y')}} </small>
-                    </div>
-                </div>
+                </a>
+                
             </div>
         {% endfor %}
         

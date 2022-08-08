@@ -9,7 +9,10 @@
                 <div class="card">
                     <div class="row g-0">
                         <div class="col-lg-5 col-12">
-                            <img src=" {{peinture.file}} " class="img-fluid rounded-start" alt="">
+                            <a href="{{path('app_realisation_details', {'slug': peinture.slug})}} ">
+                                <img src=" {{ vich_uploader_asset(peinture, 'imageFile') }} " class="img-fluid rounded-start" alt="">
+                            </a>
+                            
                         </div>
                         <div class="col-lg-7 col-12">
                             <div class="card-body">

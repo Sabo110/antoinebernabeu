@@ -70,7 +70,7 @@ class AppFixtures extends Fixture
                          ->setDescription($faker->text(200))
                          ->setPortfolio($faker->randomElement([true, false]))
                          ->setSlug($faker->slug(2))
-                         ->setFile('assets/images/f3.jpg')
+                         ->setFile('f3.jpg')
                          ->addCategorie($categorie)
                          ->setPrix($faker->randomFloat(2, 100, 9999))
                          ->setUser($user);

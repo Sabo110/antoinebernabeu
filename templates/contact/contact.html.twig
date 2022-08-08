@@ -1,0 +1,48 @@
+{% extends "layouts/base.html.twig" %}
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+{% block body %}
+    <div class="row  contenant">
+        <div class=" col-12 form"> 
+            {{form_start(form, {'attr':{'novalidate': 'novalidate'}})}}
+            {% for message in app.session.flashbag.get('success') %}
+                <div class="alert alert-success">
+                    {{message}}
+                </div>  
+            {% endfor %}
+            <div>
+                {{form_row(form.nom, {'attr': {'placeholder': 'entrer votre votre nom...'}})}}
+            </div>
+            <div>
+                {{form_row(form.email, {'label': 'e-mail','attr': {'placeholder': 'entrer votre adresse email...'}})}}
+            </div>
+            <div>
+                {{form_row(form.message, {'attr': {'placeholder': 'votre message...'}})}}
+            </div>
+            <div class="mb-3">
+                {{form_row(form.Envoyer)}}
+            </div>
+            {{form_end(form)}}
+        </div>
+    </div>
+
+    <style>
+        .form div{
+            margin-top: 15px;
+        }
+        .contenant{
+                width: 35%;
+                margin-left: auto;
+                margin-right: auto;
+            } 
+        
+
+        @media screen and (max-width: 500px) {
+            .contenant{
+                width: 100%;
+                margin-left: 0;
+                margin-right: 0;
+            }   
+        }
+
+    </style>
+{% endblock %}
